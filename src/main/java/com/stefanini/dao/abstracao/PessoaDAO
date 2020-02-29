@@ -1,0 +1,8 @@
+package com.stefanini.dao;
+
+import javax.validation.Valid;
+
+public class PessoaDAO extends GenericDAO<Pessoa, Long> {
+	
+	
+}

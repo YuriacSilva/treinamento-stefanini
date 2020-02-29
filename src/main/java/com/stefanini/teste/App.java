@@ -6,6 +6,8 @@ import javax.enterprise.inject.se.SeContainerInitializer;
 
 public class App {
 
+	@Inject
+	private PessoaServico pessoaServico;
 
 	public static void main(String[] args) {
 		//CONFIGURACAO PARA INICIAR O CONTAINER PARA GERENCIAMENTO DO CDI
@@ -17,7 +19,8 @@ public class App {
 	}
 
 	public void executar() {
-		
+		Pessoa pessoa = new Pessoa("joao". "joao@email.com", LocalDate.of(1955, 8, 25), Boolean.TRUE);
+		pessoaDAO.salvar(pessoa);
 	}
 
 }
