@@ -40,8 +40,10 @@ public abstract class GenericDao<T, I extends Serializable> implements IGenericS
 	}
 
 	/**
-	 * @valid serve para validar a entidade antes de entrar no metodo, olhar o conceito de BEAN VALIDATION
-	 * Sempre que for executar uma DML é necessario abrir uma transacao e fecha-la, pois senão a operacao não será comitada
+	 * @valid serve para validar a entidade antes de entrar no metodo, 
+	 * olhar o conceito de BEAN VALIDATION
+	 * Sempre que for executar uma DML é necessario abrir uma transacao e 
+	 * fecha-la, pois senão a operacao não será comitada
 	 */
 	public T salvar(@Valid T entity) {
 		EntityTransaction t = iniciarTransacao();
@@ -50,8 +52,10 @@ public abstract class GenericDao<T, I extends Serializable> implements IGenericS
 		return entity;
 	}
 	/**
-	 * @valid serve para validar a entidade antes de entrar no metodo, olhar o conceito de BEAN VALIDATION
-	 * Sempre que for executar uma DML é necessario abrir uma transacao e fecha-la, pois senão a operacao não será comitada
+	 * @valid serve para validar a entidade antes de entrar no metodo, 
+	 * olhar o conceito de BEAN VALIDATION
+	 * Sempre que for executar uma DML é necessario abrir uma transacao e 
+	 * fecha-la, pois senão a operacao não será comitada
 	 */
 	public T atualizar(@Valid T entity) {
 		EntityTransaction t = iniciarTransacao();
@@ -59,10 +63,10 @@ public abstract class GenericDao<T, I extends Serializable> implements IGenericS
 		finalizarTransacao(t);
 		return entity;
 	}
-
 	
 	/**
-	 * Sempre que for executar uma DML é necessario abrir uma transacao e fecha-la, pois senão a operacao não será comitada
+	 * Sempre que for executar uma DML é necessario abrir uma transacao e 
+	 * fecha-la, pois senão a operacao não será comitada
 	 */
 	public void remover(I id) {
 		T entity = encontrar(id).get();
@@ -86,7 +90,6 @@ public abstract class GenericDao<T, I extends Serializable> implements IGenericS
 	public Optional<T> encontrar(I id) {
 		return Optional.of(getEntityManager().find(classe, id));
 	}
-	
 	
 	/**
 	 * Comitar a transcao e liberar o 

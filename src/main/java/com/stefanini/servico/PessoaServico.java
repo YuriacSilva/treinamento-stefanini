@@ -21,14 +21,12 @@ public class PessoaServico implements IGenericService<Pessoa, Long> {
 	@Inject
 	private PessoaDao dao;
 	
-	
 	/**
 	 * Salvar os dados de uma Pessoa
 	 */
 	public Pessoa salvar(@Valid Pessoa pessoa) {
 		return dao.salvar(pessoa);
 	}
-
 
 	/**
 	 * Atualizar o dados de uma pessoa
@@ -38,7 +36,6 @@ public class PessoaServico implements IGenericService<Pessoa, Long> {
 		return dao.atualizar(entity);
 	}
 
-
 	/**
 	 * Remover uma pessoa pelo id
 	 */
@@ -47,7 +44,6 @@ public class PessoaServico implements IGenericService<Pessoa, Long> {
 		dao.remover(id);		
 	}
 
-
 	/**
 	 * Buscar uma lista de Pessoa
 	 */
@@ -55,7 +51,6 @@ public class PessoaServico implements IGenericService<Pessoa, Long> {
 	public Optional<List<Pessoa>> getList() {
 		return dao.getList();
 	}
-
 
 	/**
 	 * Buscar uma Pessoa pelo ID
