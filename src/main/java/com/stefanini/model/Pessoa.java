@@ -2,12 +2,16 @@ package com.stefanini.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -19,7 +23,6 @@ import javax.validation.constraints.NotNull;
 @Table(name = "TB_PESSOA")
 public class Pessoa implements Serializable{
 
-	
 	/**
 	 * Serializacao da Classe
 	 */
@@ -37,7 +40,6 @@ public class Pessoa implements Serializable{
 	@NotNull
 	@Column(name = "NO_NOME")
 	private String nome;
-	
 	/**
 	 * Email da Pessoa
 	 */
@@ -56,14 +58,22 @@ public class Pessoa implements Serializable{
 	@NotNull
 	@Column(name = "ST_PESSOA")
 	private Boolean situacao;
-
+	/**
+	 * Todos os endereços da pessoa pelo co_seq_pessoa
+	 */
+	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+	private List<Endereco> enderecos = new ArrayList<Endereco>();
+	/**
+	 * Todos os perfis da pessoa pelo co_seq_pessoa
+	 */
+	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+	private List<PessoaPerfil> pessoaPerfil = new ArrayList<PessoaPerfil>();
+	
 	/**
 	 * Metodo construtor da classe
 	 */
 	public Pessoa() {
 	}
-
-	
 
 	/**
 	 * Construtor da Classe, Obrigando receber todos os parametros
@@ -72,15 +82,14 @@ public class Pessoa implements Serializable{
 	 * @param dataNascimento
 	 * @param situacao
 	 */
-	public Pessoa(@NotNull String nome, @NotNull String email, @NotNull LocalDate dataNascimento,@NotNull Boolean situacao) {
+	public Pessoa(@NotNull String nome, @NotNull String email, 
+			@NotNull LocalDate dataNascimento, @NotNull Boolean situacao) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.dataNascimento = dataNascimento;
 		this.situacao = situacao;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -106,8 +115,6 @@ public class Pessoa implements Serializable{
 		this.dataNascimento = dataNascimento;
 	}
 
-	
-
 	public String getEmail() {
 		return email;
 	}
@@ -124,6 +131,23 @@ public class Pessoa implements Serializable{
 		this.situacao = situacao;
 	}
 
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
+	}
+
+	public List<PessoaPerfil> getPessoaPerfil() {
+		return pessoaPerfil;
+	}
+
+	public void setPessoaPerfil(List<PessoaPerfil> pessoaPerfil) {
+		this.pessoaPerfil = pessoaPerfil;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -154,9 +178,7 @@ public class Pessoa implements Serializable{
 		return "Pessoa [id=" + id + ", nome=" + nome + ", email=" + email + ", dataNascimento=" + dataNascimento
 				+ ", situacao=" + situacao + "]";
 	}
-	
-	
-	
+
 	
 	
 	

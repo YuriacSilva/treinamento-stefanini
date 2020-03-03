@@ -1,6 +1,5 @@
 package com.stefanini.teste;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 import javax.enterprise.inject.se.SeContainer;
