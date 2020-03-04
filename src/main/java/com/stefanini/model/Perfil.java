@@ -29,7 +29,7 @@ public class Perfil implements Serializable {
    * ID da Tabela
    */
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "CO_SEQ_PERFIL")
   private Long id;
   /**
@@ -124,6 +124,68 @@ public class Perfil implements Serializable {
 
   public void setDataAlteracao(LocalDate dataAlteracao) {
     this.dataAlteracao = dataAlteracao;
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((dataAlteracao == null) ? 0 : dataAlteracao.hashCode());
+    result = prime * result + ((dataInclusao == null) ? 0 : dataInclusao.hashCode());
+    result = prime * result + ((descricaoPerfil == null) ? 0 : descricaoPerfil.hashCode());
+    result = prime * result + ((id == null) ? 0 : id.hashCode());
+    result = prime * result + ((nomePerfil == null) ? 0 : nomePerfil.hashCode());
+    result = prime * result + ((pessoaPerfil == null) ? 0 : pessoaPerfil.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Perfil other = (Perfil) obj;
+    if (dataAlteracao == null) {
+      if (other.dataAlteracao != null)
+        return false;
+    } else if (!dataAlteracao.equals(other.dataAlteracao))
+      return false;
+    if (dataInclusao == null) {
+      if (other.dataInclusao != null)
+        return false;
+    } else if (!dataInclusao.equals(other.dataInclusao))
+      return false;
+    if (descricaoPerfil == null) {
+      if (other.descricaoPerfil != null)
+        return false;
+    } else if (!descricaoPerfil.equals(other.descricaoPerfil))
+      return false;
+    if (id == null) {
+      if (other.id != null)
+        return false;
+    } else if (!id.equals(other.id))
+      return false;
+    if (nomePerfil == null) {
+      if (other.nomePerfil != null)
+        return false;
+    } else if (!nomePerfil.equals(other.nomePerfil))
+      return false;
+    if (pessoaPerfil == null) {
+      if (other.pessoaPerfil != null)
+        return false;
+    } else if (!pessoaPerfil.equals(other.pessoaPerfil))
+      return false;
+    return true;
+  }
+
+  @Override
+  public String toString() {
+    return "Perfil [getId()=" + getId() + ", getNomePerfil()=" + getNomePerfil() + ", getDescricaoPerfil()="
+        + getDescricaoPerfil() + ", getDataInclusao()=" + getDataInclusao() + ", getDataAlteracao()="
+        + getDataAlteracao() + ", hashCode()=" + hashCode() + "]";
   }
   
   

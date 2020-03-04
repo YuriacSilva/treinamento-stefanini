@@ -24,8 +24,8 @@ public class PessoaPerfil implements Serializable {
    * ID da Tabela
    */
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "CO_SEQ_PESSOA_PERFIL")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "CO_SEQ_PESSOAL_PERFIL")
   private Long id;
   /**
    * FK de pessoa
