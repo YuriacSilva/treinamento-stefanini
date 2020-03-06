@@ -40,7 +40,7 @@ public class EnderecoServico implements IGenericService<Endereco, Long> {
 	 * Remover um Endereço pelo id
 	 */
 	@Override
-	public void remover(@Valid Long id) {
+	public void remover(Long id) {
 		dao.remover(id);		
 	}
 

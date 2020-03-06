@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
 import com.stefanini.model.Pessoa;
@@ -34,7 +33,6 @@ public class Endereco implements Serializable {
   /**
    * FK de perfil
    */
-  @Valid
   @ManyToOne
   @JoinColumn(name = "CO_SEQ_PESSOA")
   private Pessoa pessoa;
@@ -96,7 +94,7 @@ public class Endereco implements Serializable {
 	 * @param uf
 	 * @param cep
 	 */
-  public Endereco(@Valid Pessoa pessoa, @NotNull String logradouro, 
+  public Endereco(Pessoa pessoa, @NotNull String logradouro, 
 		  @NotNull String complemento, @NotNull String bairro, 
 		  @NotNull String cidade, @NotNull String uf, @NotNull String cep) {
     this.pessoa = pessoa;
@@ -116,11 +114,11 @@ public class Endereco implements Serializable {
     this.id = id;
   }
 
-  public Pessoa getCo_seq_pessoa() {
+  public Pessoa getPessoa() {
     return pessoa;
   }
 
-  public void setCo_seq_pessoa(Pessoa pessoa) {
+  public void setPessoa(Pessoa pessoa) {
     this.pessoa = pessoa;
   }
 
@@ -241,7 +239,7 @@ public class Endereco implements Serializable {
 
   @Override
   public String toString() {
-    return "Endereco [getId()=" + getId() + ", getCo_seq_pessoa()=" + getCo_seq_pessoa() + ", getLogradouro()="
+    return "Endereco [getId()=" + getId() + ", getPessoa()=" + getPessoa().getId() + ", getLogradouro()="
         + getLogradouro() + ", getComplemento()=" + getComplemento() + ", getBairro()=" + getBairro() + ", getCidade()="
         + getCidade() + ", getUf()=" + getUf() + ", getCep()=" + getCep() + ", hashCode()=" + hashCode() + "]";
   }

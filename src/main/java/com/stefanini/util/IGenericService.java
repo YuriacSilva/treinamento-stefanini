@@ -26,7 +26,7 @@ public interface IGenericService<T, I extends Serializable> {
 	 *  Remover uma entidade
 	 * @param id
 	 */
-	void remover(@Valid I id);
+	void remover(I id);
 
 	/**
 	 * Obter uma Lista

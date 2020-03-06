@@ -40,7 +40,7 @@ public class PerfilServico implements IGenericService<Perfil, Long> {
 	 * Remover um Perfil pelo id
 	 */
 	@Override
-	public void remover(@Valid Long id) {
+	public void remover(Long id) {
 		dao.remover(id);		
 	}
 

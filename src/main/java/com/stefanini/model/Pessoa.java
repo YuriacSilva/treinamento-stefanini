@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -61,7 +62,7 @@ public class Pessoa implements Serializable{
 	/**
 	 * Todos os endereços da pessoa pelo co_seq_pessoa
 	 */
-	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Endereco> enderecos = new ArrayList<Endereco>();
 	/**
 	 * Todos os perfis da pessoa pelo co_seq_pessoa
@@ -173,12 +174,14 @@ public class Pessoa implements Serializable{
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Pessoa [id=" + id + ", nome=" + nome + ", email=" + email + ", dataNascimento=" + dataNascimento
-				+ ", situacao=" + situacao + "]";
-	}
+  @Override
+  public String toString() {
+    return "Pessoa [getId()=" + getId() + ", getNome()=" + getNome() + ", getDataNascimento()=" + getDataNascimento()
+        + ", getEmail()=" + getEmail() + ", getSituacao()=" + getSituacao() + ", getEnderecos()=" + getEnderecos()
+        + ", getPessoaPerfil()=" + getPessoaPerfil() + ", hashCode()=" + hashCode() + "]";
+  }
 
+	
 	
 	
 	
