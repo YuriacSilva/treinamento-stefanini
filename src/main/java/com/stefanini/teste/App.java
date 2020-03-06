@@ -100,9 +100,6 @@ public class App {
 //    pessoa = new Pessoa("YURI", "yuri.dev@hotmail.com", LocalDate.of(1988, 7, 7), Boolean.TRUE);
 //    servicoPessoa.salvar(pessoa);
 //    
-//    pessoa = new Pessoa("CHICO", "chico.dev@hotmail.com", LocalDate.of(1995, 8, 24), Boolean.TRUE);
-//    servicoPessoa.salvar(pessoa);
-//		
 //    pessoa = new Pessoa("YURI", "yuri.dev@hotmail.com2", LocalDate.of(1988, 7, 7), Boolean.TRUE);
 //    servicoPessoa.salvar(pessoa);
 	}
